@@ -2,7 +2,7 @@
 
 // ahmadrais [at][outlook][dot][co][dot][id]
 
-class myTool
+class MyTool
 {
     public function getClientIp()
     {
