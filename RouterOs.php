@@ -19,25 +19,14 @@ namespace Application\Mikrotik;
 
 class RouterOs
 {
-    #var $debug = false;      # Show debug information
     public $debug = false;
-    #var $error_no;           # Variable for storing connection error number, if any
     public $error_no;
-    #var $error_str;          # Variable for storing connection error text, if any
     public $error_str;
-    #var $attempts = 5;       # Connection attempt count
     public $attempts = 5;
-    #var $connected = false;  # Connection state
     public $connected = false;
-    #var $delay = 3;          # Delay between connection attempts in seconds
     public $delay = 3;
-    #var $port = 8728;        # Port to connect to
-    #var $timeout = 3;        # Connection attempt timeout and data read timeout
     public $timeout = 3;
-    #var $socket;             # Variable for storing socket resource
     public $socket;
-    #
-
     public $rbIpAddress;
     public $rbUsername;
     public $rbPassword;
