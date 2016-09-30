@@ -1,25 +1,26 @@
 <?php
 
 /*
-# class ini untuk handle connection ke database
-# @ahmadrais.mail@gmail.com Oct 24th 2014
-#*/
+ * class ini untuk handle connection ke database
+ * @ahmadrais.mail@gmail.com Oct 24th 2014
+ */
 
 class ConnectionPdo
 {
-
     protected $_dbUsername;
     protected $_dbPassword;
     protected $_dbHost;
     protected $_dbName;
     protected $_dbh;
+    protected $_dbPort;
 
-    public function __construct($dbHost, $dbName, $dbUsername, $dbPassword)
+    public function __construct($dbHost, $dbName, $dbUsername, $dbPassword, $dbPort = 3306)
     {
         $this->_dbUsername = $dbUsername;
         $this->_dbPassword = $dbPassword;
         $this->_dbHost     = $dbHost;
         $this->_dbName     = $dbName;
+        $this->_dbPort     = $dbPort;
     }
 
     public function connect()
@@ -27,7 +28,7 @@ class ConnectionPdo
         if (!$this->_dbh) {
             try
             {
-                $this->_dbh = new PDO("mysql:host=$this->_dbHost;dbname=$this->_dbName", $this->_dbUsername, $this->_dbPassword);
+                $this->_dbh = new PDO("mysql:host=$this->_dbHost;port=$this->_dbPort;dbname=$this->_dbName", $this->_dbUsername, $this->_dbPassword);
             }
             catch (PDOException $e)
             {
